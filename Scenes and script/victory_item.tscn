@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://12p2riuyilde"]
+
+[ext_resource type="Script" uid="uid://ckl2bbwbqdiol" path="res://victory_item.gd" id="1_ihy84"]
+[ext_resource type="Texture2D" uid="uid://b1lcbps8kiocv" path="res://electronics_full_sheet.png" id="2_hm2tq"]
+[ext_resource type="FontFile" uid="uid://bkkhpiv8yp7fg" path="res://OpenType (.otf)/Jupiteroid-Italic.otf" id="3_m8tv2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyp20"]
+atlas = ExtResource("2_hm2tq")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8pc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyp20")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihy84"]
+size = Vector2(31, 33)
+
+[node name="VictoryItem" type="Area2D" unique_id=384698153]
+script = ExtResource("1_ihy84")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2035900595]
+sprite_frames = SubResource("SpriteFrames_n8pc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=774539552]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ihy84")
+
+[node name="Label" type="Label" parent="." unique_id=1057048016]
+offset_left = -40.0
+offset_top = -36.0
+offset_right = 39.0
+offset_bottom = -13.0
+theme_override_fonts/font = ExtResource("3_m8tv2")
+theme_override_font_sizes/font_size = 12
+text = "History package"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

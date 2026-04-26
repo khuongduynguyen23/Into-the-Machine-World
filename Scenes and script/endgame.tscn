@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c736ef0yexuxl"]
+
+[ext_resource type="Script" uid="uid://btqafime2vv0n" path="res://endgame.gd" id="1_ktvtc"]
+[ext_resource type="FontFile" uid="uid://bltr0tm546f7p" path="res://OpenType (.otf)/Jupiteroid-Bold.otf" id="2_l2jay"]
+[ext_resource type="AudioStream" uid="uid://b534ngc2wpjoc" path="res://Music/dust1.mp3" id="3_ktvtc"]
+
+[node name="Endgame" type="CanvasLayer" unique_id=1658363459]
+script = ExtResource("1_ktvtc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1417446583]
+offset_right = 636.0
+offset_bottom = 359.0
+color = Color(0, 0.3019608, 0.29411766, 1)
+
+[node name="RichTextLabel" type="Label" parent="." unique_id=1900416117]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -139.0
+offset_right = 298.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Congratulations. You are alive and collect us the history package.
+However, your guilty is not cleared yet. Stay on that machine body and discover this world. 
+That's your gift now."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Replay" type="Button" parent="." unique_id=1928729487]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -10.0
+offset_right = 49.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_l2jay")
+text = "Replay"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=521519175]
+stream = ExtResource("3_ktvtc")
+
+[connection signal="pressed" from="Replay" to="." method="_on_replay_pressed"]

@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://b3qejxurrklgu"]
+
+[ext_resource type="Script" uid="uid://ddyii4j0xl4tk" path="res://monster_1.gd" id="1_k5hwm"]
+[ext_resource type="Texture2D" uid="uid://b8k371icc3dqw" path="res://Monster/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="2_fjxff"]
+[ext_resource type="PackedScene" uid="uid://bfv3r4xsba682" path="res://Scenes and script/hurtbox.tscn" id="3_0cth1"]
+[ext_resource type="PackedScene" uid="uid://cl8yxdbm4dtrn" path="res://Scenes and script/hitbox.tscn" id="4_xsnom"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cth1"]
+atlas = ExtResource("2_fjxff")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsnom"]
+atlas = ExtResource("2_fjxff")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwkk7"]
+atlas = ExtResource("2_fjxff")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0anpd"]
+atlas = ExtResource("2_fjxff")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tcbiw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cth1")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsnom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwkk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0anpd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cth1"]
+size = Vector2(8, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwkk7"]
+size = Vector2(15, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0anpd"]
+size = Vector2(13, 15)
+
+[node name="Monster1" type="CharacterBody2D" unique_id=298388176 groups=["monster"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_k5hwm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1844586222]
+sprite_frames = SubResource("SpriteFrames_tcbiw")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2121749805]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_0cth1")
+
+[node name="beforedieTimer" type="Timer" parent="." unique_id=1109083329]
+wait_time = 0.5
+
+[node name="Hurtbox" parent="." unique_id=939649114 instance=ExtResource("3_0cth1")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0" unique_id=1853434884]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_cwkk7")
+
+[node name="disabletimer" parent="Hurtbox" index="1" unique_id=1915568447]
+wait_time = 0.5
+
+[node name="Hitbox" parent="." unique_id=30128708 instance=ExtResource("4_xsnom")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=159318091]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_0anpd")
+
+[connection signal="timeout" from="beforedieTimer" to="." method="_on_beforedie_timer_timeout"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

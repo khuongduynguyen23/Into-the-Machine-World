@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://obietg5rnq6e"]
+
+[ext_resource type="Script" uid="uid://112r6dvfoo8t" path="res://Scenes and script/map_1.gd" id="1_q7els"]
+[ext_resource type="PackedScene" uid="uid://cbdo1jgcmnrom" path="res://Scenes and script/robot.tscn" id="1_sogsg"]
+[ext_resource type="PackedScene" uid="uid://duv3ewiydjhrh" path="res://enemy_spawner.tscn" id="2_vf7jx"]
+[ext_resource type="PackedScene" uid="uid://b3qejxurrklgu" path="res://Scenes and script/monster_1.tscn" id="2_wv55d"]
+[ext_resource type="FontFile" uid="uid://dum4ekuyji8rk" path="res://OpenType (.otf)/Jupiteroid-BoldItalic.otf" id="3_c87bg"]
+[ext_resource type="AudioStream" uid="uid://xluesxl64ob1" path="res://Music/Bogart VGM - Scifi Main Theme_ Menu.mp3" id="3_cip72"]
+[ext_resource type="Script" uid="uid://da7boiu85aere" path="res://Scenes and script/Spawn_info.gd" id="3_vy7mu"]
+[ext_resource type="FontFile" uid="uid://bltr0tm546f7p" path="res://OpenType (.otf)/Jupiteroid-Bold.otf" id="4_a3mqx"]
+[ext_resource type="PackedScene" uid="uid://b4ltk2sebj6ss" path="res://Scenes and script/monster_2.tscn" id="5_vy7mu"]
+[ext_resource type="PackedScene" uid="uid://4se4xdckfkl5" path="res://Scenes and script/monster_3.tscn" id="7_e4uhi"]
+[ext_resource type="PackedScene" uid="uid://cg2nh78iu30r4" path="res://Scenes and script/monster_4.tscn" id="8_nvb6h"]
+[ext_resource type="PackedScene" uid="uid://c8o06cpqp067o" path="res://Scenes and script/monster_5.tscn" id="9_xgosd"]
+[ext_resource type="PackedScene" uid="uid://dnv0b2aybldut" path="res://Scenes and script/monster61.tscn" id="10_icoy2"]
+[ext_resource type="PackedScene" uid="uid://bdrxos8x6r8s" path="res://Scenes and script/monster_7.tscn" id="11_rf3yp"]
+[ext_resource type="PackedScene" uid="uid://dina5pnuldqnn" path="res://Scenes and script/monster_8.tscn" id="12_cip72"]
+
+[sub_resource type="Resource" id="Resource_q7els"]
+script = ExtResource("3_vy7mu")
+time_end = 60
+enemy = ExtResource("2_wv55d")
+enemy_num = 1
+enemy_spawn_delay = 1
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_laqb3"]
+script = ExtResource("3_vy7mu")
+time_start = 20
+time_end = 60
+enemy = ExtResource("2_wv55d")
+enemy_num = 10
+enemy_spawn_delay = 10
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_vf7jx"]
+script = ExtResource("3_vy7mu")
+time_start = 50
+time_end = 60
+enemy = ExtResource("5_vy7mu")
+enemy_num = 1
+enemy_spawn_delay = 5
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_xgosd"]
+script = ExtResource("3_vy7mu")
+time_start = 60
+time_end = 120
+enemy = ExtResource("7_e4uhi")
+enemy_num = 1
+enemy_spawn_delay = 1
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_icoy2"]
+script = ExtResource("3_vy7mu")
+time_start = 80
+time_end = 120
+enemy = ExtResource("7_e4uhi")
+enemy_num = 10
+enemy_spawn_delay = 5
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_rf3yp"]
+script = ExtResource("3_vy7mu")
+time_start = 110
+time_end = 120
+enemy = ExtResource("8_nvb6h")
+enemy_num = 1
+enemy_spawn_delay = 5
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_cip72"]
+script = ExtResource("3_vy7mu")
+time_start = 120
+time_end = 180
+enemy = ExtResource("9_xgosd")
+enemy_num = 1
+enemy_spawn_delay = 1
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_o25yc"]
+script = ExtResource("3_vy7mu")
+time_start = 140
+time_end = 180
+enemy = ExtResource("9_xgosd")
+enemy_num = 10
+enemy_spawn_delay = 10
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_c87bg"]
+script = ExtResource("3_vy7mu")
+time_start = 170
+time_end = 180
+enemy = ExtResource("10_icoy2")
+enemy_num = 1
+enemy_spawn_delay = 5
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_a3mqx"]
+script = ExtResource("3_vy7mu")
+time_start = 180
+time_end = 240
+enemy = ExtResource("11_rf3yp")
+enemy_num = 1
+enemy_spawn_delay = 1
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_hfr8l"]
+script = ExtResource("3_vy7mu")
+time_start = 200
+time_end = 240
+enemy = ExtResource("11_rf3yp")
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[sub_resource type="Resource" id="Resource_8jtbl"]
+script = ExtResource("3_vy7mu")
+time_start = 230
+time_end = 240
+enemy = ExtResource("12_cip72")
+enemy_num = 1
+enemy_spawn_delay = 5
+metadata/_custom_type_script = "uid://da7boiu85aere"
+
+[node name="Map1" type="Node2D" unique_id=894840381]
+script = ExtResource("1_q7els")
+
+[node name="Robot" parent="." unique_id=1415719338 instance=ExtResource("1_sogsg")]
+scale = Vector2(0.4, 0.4)
+
+[node name="Data2Up" parent="Robot/HUD" parent_id_path=PackedInt32Array(1415719338, 1611072591) index="0" unique_id=42870850]
+theme_override_fonts/font = ExtResource("3_c87bg")
+
+[node name="TotalData" parent="Robot/HUD" parent_id_path=PackedInt32Array(1415719338, 1611072591) index="1" unique_id=283142043]
+theme_override_fonts/font = ExtResource("4_a3mqx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Robot/HUD" parent_id_path=PackedInt32Array(1415719338, 1611072591) index="2" unique_id=65015759]
+stream = ExtResource("3_cip72")
+autoplay = true
+
+[node name="EnemySpawner" parent="." unique_id=380325362 instance=ExtResource("2_vf7jx")]
+spawns = Array[ExtResource("3_vy7mu")]([SubResource("Resource_q7els"), SubResource("Resource_laqb3"), SubResource("Resource_vf7jx"), SubResource("Resource_xgosd"), SubResource("Resource_icoy2"), SubResource("Resource_rf3yp"), SubResource("Resource_cip72"), SubResource("Resource_o25yc"), SubResource("Resource_c87bg"), SubResource("Resource_a3mqx"), SubResource("Resource_hfr8l"), SubResource("Resource_8jtbl")])
+
+[node name="SpawnerTimer" parent="EnemySpawner" index="0" unique_id=100477437]
+wait_time = 0.5
+autostart = true
+
+[editable path="Robot"]
+[editable path="Robot/Hurtbox"]
+[editable path="Robot/Weapon/MiniElectricGun"]
+[editable path="Robot/UpgradeMenu"]
+[editable path="EnemySpawner"]

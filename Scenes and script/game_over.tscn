@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cclekvmlg0xq5"]
+
+[ext_resource type="Script" uid="uid://dcvl82ukltruo" path="res://game_over.gd" id="1_mcf5e"]
+[ext_resource type="FontFile" uid="uid://ckbwx85xphubs" path="res://game-over.ttf" id="2_70ctj"]
+[ext_resource type="FontFile" uid="uid://bltr0tm546f7p" path="res://OpenType (.otf)/Jupiteroid-Bold.otf" id="2_baycp"]
+[ext_resource type="AudioStream" uid="uid://bap700krh8s6f" path="res://Music/creepy1.wav" id="4_baycp"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=1054795943]
+script = ExtResource("1_mcf5e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1415231744]
+offset_right = 647.0
+offset_bottom = 363.0
+color = Color(0.62352943, 0.05490196, 0.7372549, 0.2)
+
+[node name="Button" type="Button" parent="." unique_id=564285094]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 30.0
+offset_right = 34.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_baycp")
+text = "REPLAY"
+
+[node name="Label" type="Label" parent="." unique_id=1564660127]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = -11.5
+offset_right = 110.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_70ctj")
+text = "You Die! Your body and soul!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1540074793]
+stream = ExtResource("4_baycp")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

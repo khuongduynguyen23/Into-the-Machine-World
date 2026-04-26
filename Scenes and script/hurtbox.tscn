@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bfv3r4xsba682"]
+
+[ext_resource type="Script" uid="uid://c7qje1amkc2tu" path="res://hurtbox.gd" id="1_vebab"]
+
+[node name="Hurtbox" type="Area2D" unique_id=939649114]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_vebab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1853434884]
+
+[node name="disabletimer" type="Timer" parent="." unique_id=1915568447]
+wait_time = 0.75
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="disabletimer" to="." method="_on_disabletimer_timeout"]

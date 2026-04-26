@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://cbdo1jgcmnrom"]
+
+[ext_resource type="Texture2D" uid="uid://pt5b2laofvt6" path="res://Weird Robot/idle.png" id="1_ald14"]
+[ext_resource type="Script" uid="uid://cq27cvmk6ptna" path="res://Scenes and script/robot.gd" id="1_vqp2u"]
+[ext_resource type="Texture2D" uid="uid://br1pisianpdqq" path="res://Weird Robot/raise.png" id="2_vqp2u"]
+[ext_resource type="Texture2D" uid="uid://bmr4t6y0cy1el" path="res://Weird Robot/step.png" id="3_1knwt"]
+[ext_resource type="Texture2D" uid="uid://dqn4lvc03q8w0" path="res://Weird Robot/duck.png" id="3_ctlt6"]
+[ext_resource type="PackedScene" uid="uid://bfv3r4xsba682" path="res://Scenes and script/hurtbox.tscn" id="5_1knwt"]
+[ext_resource type="PackedScene" uid="uid://g5lavtugqcrh" path="res://Scenes and script/mini_electric_gun.tscn" id="6_sk67k"]
+[ext_resource type="PackedScene" uid="uid://dfhug3fbx5ax8" path="res://Scenes and script/upgrade_menu.tscn" id="7_oi14d"]
+[ext_resource type="FontFile" uid="uid://ckbwx85xphubs" path="res://game-over.ttf" id="8_bas8j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sk67k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ctlt6")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ald14")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vqp2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1knwt")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ald14"]
+size = Vector2(18, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk67k"]
+size = Vector2(20, 85)
+
+[node name="Robot" type="CharacterBody2D" unique_id=1415719338 groups=["player"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_vqp2u")
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1415205556]
+
+[node name="Label" type="Label" parent="." unique_id=1771256576]
+offset_left = -20.0
+offset_top = -75.0
+offset_right = 20.0
+offset_bottom = -52.0
+theme_override_colors/font_color = Color(0.9607843, 0, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("8_bas8j")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1365635201]
+sprite_frames = SubResource("SpriteFrames_sk67k")
+animation = &"Die"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=704832946]
+position = Vector2(-1, -9.5)
+shape = SubResource("RectangleShape2D_ald14")
+
+[node name="Hurtbox" parent="." unique_id=939649114 instance=ExtResource("5_1knwt")]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0" unique_id=1853434884]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_sk67k")
+
+[node name="Weapon" type="Node2D" parent="." unique_id=1062348452]
+
+[node name="MiniElectricGun" parent="Weapon" unique_id=1943060007 instance=ExtResource("6_sk67k")]
+
+[node name="UpgradeMenu" parent="." unique_id=380638472 instance=ExtResource("7_oi14d")]
+
+[node name="UpgradeButton" parent="UpgradeMenu" index="1" unique_id=1207284621]
+process_mode = 3
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1611072591]
+
+[node name="Data2Up" type="Label" parent="HUD" unique_id=42870850]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_bas8j")
+theme_override_font_sizes/font_size = 10
+
+[node name="TotalData" type="Label" parent="HUD" unique_id=283142043]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("8_bas8j")
+theme_override_font_sizes/font_size = 10
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="pressed" from="UpgradeMenu/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+
+[editable path="Hurtbox"]
+[editable path="Weapon/MiniElectricGun"]
+[editable path="UpgradeMenu"]

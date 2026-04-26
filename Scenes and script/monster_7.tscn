@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bdrxos8x6r8s"]
+
+[ext_resource type="PackedScene" uid="uid://box2c21h4fvi3" path="res://Scenes and script/monster_demo.tscn" id="1_02lrq"]
+[ext_resource type="Texture2D" uid="uid://b8k371icc3dqw" path="res://Monster/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="2_1ikbx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irecu"]
+atlas = ExtResource("2_1ikbx")
+region = Rect2(96, 896, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5jfy"]
+atlas = ExtResource("2_1ikbx")
+region = Rect2(0, 896, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3247q"]
+atlas = ExtResource("2_1ikbx")
+region = Rect2(32, 896, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa7e8"]
+atlas = ExtResource("2_1ikbx")
+region = Rect2(64, 896, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vcjf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irecu")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5jfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3247q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa7e8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Monster1" unique_id=298388176 instance=ExtResource("1_02lrq")]
+hp = 7
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1844586222]
+sprite_frames = SubResource("SpriteFrames_vcjf0")
+animation = &"walk"
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=2121749805]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" parent="Hurtbox" parent_id_path=PackedInt32Array(939649114) index="0" unique_id=1853434884]
+position = Vector2(0.5, 1)
+
+[node name="Hitbox" parent="." index="4" unique_id=30128708]
+damage = 7
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=159318091]
+position = Vector2(1, 1.5)
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

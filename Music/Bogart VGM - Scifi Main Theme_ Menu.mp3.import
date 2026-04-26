@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xluesxl64ob1"
+path="res://.godot/imported/Bogart VGM - Scifi Main Theme_ Menu.mp3-35f8b759772880f314644824a95d496b.mp3str"
+
+[deps]
+
+source_file="res://Music/Bogart VGM - Scifi Main Theme_ Menu.mp3"
+dest_files=["res://.godot/imported/Bogart VGM - Scifi Main Theme_ Menu.mp3-35f8b759772880f314644824a95d496b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

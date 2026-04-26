@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b4ltk2sebj6ss"]
+
+[ext_resource type="PackedScene" uid="uid://b3qejxurrklgu" path="res://Scenes and script/monster_1.tscn" id="1_ktgj3"]
+
+[node name="Monster2" unique_id=298388176 instance=ExtResource("1_ktgj3")]
+scale = Vector2(1.5, 1.5)
+hp = 2
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="." index="4" unique_id=30128708]
+damage = 2
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]
